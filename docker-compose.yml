@@ -1,6 +1,6 @@
 services:
   homepage-lite:
-    build: .
+    image: ghcr.io/jkerdreux-imt/homepage-lite:latest
     ports:
       - "8888:8888"
     volumes:
