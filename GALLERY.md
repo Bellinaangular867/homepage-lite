@@ -1,0 +1,5 @@
+# Screenshots
+
+| ![Screenshot 1](Screenshots/2025-11-07-113323_hyprshot.png) | ![Screenshot 2](Screenshots/2025-11-07-113331_hyprshot.png) | ![Screenshot 3](Screenshots/2025-11-07-113340_hyprshot.png) | ![Screenshot 4](Screenshots/2025-11-07-113347_hyprshot.png) | ![Screenshot 5](Screenshots/2025-11-07-113355_hyprshot.png) |
+|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------------------------------------|
+| ![Screenshot 6](Screenshots/2025-11-07-113402_hyprshot.png) | ![Screenshot 7](Screenshots/2025-11-07-113429_hyprshot.png) | ![Screenshot 8](Screenshots/2025-11-07-113511_hyprshot.png) | ![Screenshot 9](Screenshots/2025-11-07-134705_hyprshot.png) | |

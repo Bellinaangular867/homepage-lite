@@ -1,0 +1,30 @@
+:root {
+    --card-bg: rgba(26, 27, 38, 0.3);
+    --card-border: rgba(122, 162, 247, 0.3);
+    --text-primary: #c0caf5;
+    --text-secondary: rgba(192, 202, 245, 0.7);
+    --accent: #7aa2f7;
+    --status-up: #9ece6a;
+    --status-down: #f7768e;
+    --theme-background: url('https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?auto=format&fit=crop&w=2560&q=80');
+}
+
+body {
+    background: #1a1b26;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--theme-background);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(1px) saturate(100%) brightness(60%);
+    opacity: 0.4;
+    z-index: -1;
+}

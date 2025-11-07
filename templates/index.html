@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Config.Settings.Title}}</title>
+    <link rel="stylesheet" href="/static/styles.css?v=28">
+    <link rel="stylesheet" id="theme-css" href="">
+    <script src="/static/iconify.min.js"></script>
+    <script src="/static/app.js"></script>
+</head>
+<body>
+    <header class="container">
+        {{if .Config.Settings.ShowTitle}}
+        <h1>{{.Config.Settings.Title}}</h1>
+        {{end}}
+    </header>
+
+    <main class="container">
+        <div class="dashboard-layout layout-sidebar">
+            <aside class="sidebar">
+                <section>
+                    <h2>Bookmarks</h2>
+                    <div class="columns bookmarks-sidebar" id="bookmarks">
+                        {{range .Config.Bookmarks}}
+                        <div>
+                            <h2>{{.Group}}</h2>
+                            <div class='group-items bookmark-items'>
+                                {{range .Items}}
+                                <a href='{{.URL}}' target='_blank' class='card bookmark-card'>
+                                    <div class='card-content'>
+                                        <h3>{{.Abbr}}</h3>
+                                        <p class='bookmark-name'>{{.Name}}</p>
+                                        <p class='bookmark-url'>{{getDomain .URL}}</p>
+                                    </div>
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                        {{end}}
+                    </div>
+                </section>
+            </aside>
+            
+            <div class="main-content">
+                <section>
+                    <h2>Services</h2>
+                    <div class="columns" id="services">
+                        {{range .Config.Services}}
+                        <div>
+                            <h2>{{.Group}}</h2>
+                            <div class='group-items'>
+                                {{range .Items}}
+                                <a href='{{.URL}}' target='_blank' 
+                                   class='card status-{{.Status}}'
+                                   data-service-id="{{getServiceID .URL}}">
+                                     {{getIconHTML .Icon .Name}}
+                                    <div class='card-content'>
+                                        <h3>{{.Name}}</h3>
+                                        {{if .Description}}
+                                        <p>{{.Description}}</p>
+                                        {{end}}
+                                    </div>
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                        {{end}}
+                    </div>
+                </section>
+                
+                <section class="bookmarks-bottom">
+                    <h2>Bookmarks</h2>
+                    <div class="columns" id="bookmarks-bottom">
+                        {{range .Config.Bookmarks}}
+                        <div>
+                            <h2>{{.Group}}</h2>
+                            <div class='group-items bookmark-items'>
+                                {{range .Items}}
+                                <a href='{{.URL}}' target='_blank' class='card bookmark-card'>
+                                    <div class='card-content'>
+                                        <h3>{{.Abbr}}</h3>
+                                        <p class='bookmark-name'>{{.Name}}</p>
+                                        <p class='bookmark-url'>{{getDomain .URL}}</p>
+                                    </div>
+                                </a>
+                                {{end}}
+                            </div>
+                        </div>
+                        {{end}}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div id="metrics" class="metrics metrics-inline">
+                <div>
+                    <span class="iconify metric-icon" data-icon="mdi:cpu-64-bit"></span>
+                    <div class="metric-info">
+                        <h3>CPU Load</h3>
+                        <div class="value" id="cpu-value">{{round2 .Metrics.CPULoad}}%</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="iconify metric-icon" data-icon="mdi:memory"></span>
+                    <div class="metric-info">
+                        <h3>Memory</h3>
+                        <div class="value" id="memory-value">{{round2 .Metrics.MemoryUsed}}GB / {{round2 .Metrics.MemoryTotal}}GB</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="iconify metric-icon" data-icon="mdi:harddisk"></span>
+                    <div class="metric-info">
+                        <h3>Disk</h3>
+                        <div class="value" id="disk-value">{{round2 .Metrics.DiskUsed}}GB / {{round2 .Metrics.DiskTotal}}GB</div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-controls">
+                <select id="layout-selector" class="layout-selector">
+                    <option value="sidebar">Sidebar</option>
+                    <option value="bottom">Bottom</option>
+                </select>
+                <select id="theme-selector" class="theme-selector">
+                    <option value="default">Default</option>
+                    <option value="catppuccin-latte">Catppuccin Latte</option>
+                    <option value="tokyo-night">Tokyo Night</option>
+                    <option value="nord">Nord</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="gruvbox">Gruvbox</option>
+                </select>
+                <div style="opacity: 0.6; font-size: 0.85rem;">v{{.Version}}</div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Search popup -->
+    <div id="search-popup" class="search-popup">
+        <div class="search-popup-content">
+            <input type="text" id="search-input" placeholder="Type to search services and bookmarks..." autocomplete="off">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+</body>
+</html>
