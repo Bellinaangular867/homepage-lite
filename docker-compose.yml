@@ -1,0 +1,8 @@
+services:
+  homepage-lite:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./config.yaml:/root/config.yaml
+    restart: unless-stopped
