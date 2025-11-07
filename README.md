@@ -62,6 +62,33 @@ Pre-built binaries for Linux (x86/ARM64), Windows, and macOS are available for d
    sudo systemctl enable homepage-lite
    ```
 
+## Docker
+
+Homepage-lite is available as a Docker image on GitHub Container Registry.
+
+1. Ensure you have a `config.yaml` file (see Configuration section below).
+
+2. Create a `docker-compose.yml` file in the same directory:
+
+   ```yaml
+   services:
+     homepage-lite:
+       image: ghcr.io/jkerdreux-imt/homepage-lite:latest
+       ports:
+         - "8888:8888"
+       volumes:
+         - ./config.yaml:/root/config.yaml
+       restart: unless-stopped
+   ```
+
+3. Run the container:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+The application will be available at `http://localhost:8888`.
+
 ## Configuration
 
 Configuration is managed through `config.yaml`. Example structure:
