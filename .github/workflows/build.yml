@@ -62,11 +62,10 @@ jobs:
         context: .
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/homepage-lite:${{ github.ref_name }},ghcr.io/${{ github.repository_owner }}/homepage-lite:latest
-        build-args: |
-          VERSION=${{ github.ref_name }}
-          BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-          GIT_COMMIT=${{ github.sha }}
-          GO_VERSION=$(go version | cut -d ' ' -f 3)
+         build-args: |
+           VERSION=${{ github.ref_name }}
+           GIT_COMMIT=${{ github.sha }}
+           GO_VERSION=$(go version | cut -d ' ' -f 3)
 
   release:
     needs: build
