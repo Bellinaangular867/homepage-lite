@@ -652,7 +652,7 @@ section {
         align-items: stretch;
     }
     
-    .metrics-inline {
+    .metrics {
         flex-direction: column;
         gap: 0.5rem;
     }
