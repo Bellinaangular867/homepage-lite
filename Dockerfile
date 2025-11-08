@@ -4,7 +4,6 @@ FROM golang:1.25-alpine AS builder
 # Build args for version info
 ARG VERSION=dev
 ARG GIT_COMMIT=unknown
-ARG GO_VERSION=unknown
 
 WORKDIR /app
 
@@ -16,7 +15,7 @@ RUN go mod download
 COPY . .
 
 # Build the binary with ldflags
-RUN BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ') && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags "-s -w -X main.Version=${VERSION} -X main.BuildTime=${BUILD_TIME} -X main.GitCommit=${GIT_COMMIT} -X main.GoVersion=${GO_VERSION}" -o homepage-lite .
+RUN BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ') && GO_VERSION=$(go version | cut -d ' ' -f 3) && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags "-s -w -X main.Version=${VERSION} -X main.BuildTime=${BUILD_TIME} -X main.GitCommit=${GIT_COMMIT} -X main.GoVersion=${GO_VERSION}" -o homepage-lite .
 
 # Runtime stage
 FROM alpine:latest
