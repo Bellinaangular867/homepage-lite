@@ -362,8 +362,8 @@ func updateAllServiceStatus() {
 
 	wg.Wait()
 
-	// Broadcast status updates via SSE (only for changed services)
-	serviceStatusMux.Lock()
+	// First, read existing status with read lock
+	serviceStatusMux.RLock()
 	for url, newStatus := range tempStatus {
 		if oldStatus, exists := serviceStatus[url]; !exists || oldStatus != newStatus {
 			serviceID := getServiceID(url)
@@ -371,7 +371,10 @@ func updateAllServiceStatus() {
 			broadcastSSE(SSETypeService, serviceData)
 		}
 	}
-	// Update global status map in one go
+	serviceStatusMux.RUnlock()
+
+	// Then, update with write lock
+	serviceStatusMux.Lock()
 	serviceStatus = tempStatus
 	serviceStatusMux.Unlock()
 }
