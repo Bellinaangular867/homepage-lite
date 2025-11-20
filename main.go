@@ -49,6 +49,14 @@ var (
 	serviceStatusMux sync.RWMutex
 )
 
+// Global HTTP client for service status checks
+var httpClient = &http.Client{
+	Transport: &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	},
+	Timeout: 5 * time.Second,
+}
+
 // getServiceID generates a short hash ID from a service URL
 func getServiceID(url string) string {
 	hash := sha256.Sum256([]byte(url))
@@ -295,15 +303,7 @@ func handleSSE(w http.ResponseWriter, r *http.Request) {
 
 // checkServiceStatus performs a HEAD request to check if a service is responding.
 func checkServiceStatus(url string) string {
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-	}
-	client := &http.Client{
-		Transport: tr,
-		Timeout:   5 * time.Second,
-	}
-
-	resp, err := client.Head(url)
+	resp, err := httpClient.Head(url)
 	// don't forget to close
 	if resp != nil {
 		defer resp.Body.Close()
